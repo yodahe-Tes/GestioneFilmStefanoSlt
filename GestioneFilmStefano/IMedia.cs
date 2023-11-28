@@ -14,6 +14,5 @@ namespace GestioneFilm
         void Stop();
 
 
-
     }
 }

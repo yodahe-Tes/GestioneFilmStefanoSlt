@@ -1,5 +1,5 @@
 ﻿using GestioneFilm;
-
+using System;
 
 namespace GestioneFilm
 {
@@ -13,7 +13,9 @@ namespace GestioneFilm
 
         public override void Play()
         {
-            throw new NotImplementedException();
+             
+            Console.WriteLine("/n il titolo dell'episodio è" + titolo + "/n Il numero dell'episodio è " + NumeroEpisodio +
+                "/nLa stagione dell'episodio è " + Stagione + " /nLa durata dell'episodio è  " + DurataMin + "/n Ha ricevuto il premio" + Premio);
         }
     }
 }

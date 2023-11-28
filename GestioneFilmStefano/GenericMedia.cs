@@ -19,7 +19,13 @@ namespace GestioneFilm
 
         public void Stop()
         {
-            Console.WriteLine("la riproduzione e finita");
+            Console.WriteLine("Media in pausa");
+        }
+
+        public int minutoCorrente()
+        {
+            return new Random().Next(1, DurataMin + 1);
         }
     }
+    
 }

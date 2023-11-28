@@ -11,9 +11,7 @@ namespace GestioneFilm
 
         public override void Play()
         {
-            Random rnd = new Random(); 
-            int Durata = rnd.Next(1, 61);
-            Console.WriteLine("il film" + titolo + " e al minuto  " + Durata);
+            Console.WriteLine("il titolo del film è" + titolo + " e al minuto  " + DurataMin + "Ha ricevuto il premio"+ Premio);
         }
 
     }
