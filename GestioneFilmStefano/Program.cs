@@ -11,9 +11,20 @@ namespace GestioneFilm // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Film film = new Film();
-            film.titolo = "Star Wars";
-            film.Play();
+            Film mNewFilm = new Film();
+            mNewFilm.titolo = "Star Wars";
+            mNewFilm.DurataMin = 3;
+            mNewFilm.Premio = GenericMedia.premioType.David;
+            mNewFilm.Play();
+
+            EpisodioSerieTv mNewEpisodio = new();
+            mNewEpisodio.titolo = "Andor";
+            mNewEpisodio.Stagione = 2;
+            mNewEpisodio.NumeroEpisodio = 15;
+
+            mNewEpisodio.Stop();
+            mNewFilm.Stop();
+
 
             //Interfaccia IMedia 
             //Titolo // string

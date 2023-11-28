@@ -11,6 +11,8 @@ namespace GestioneFilm
 
         void Play();
 
+        void Stop();
+
 
 
     }

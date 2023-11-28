@@ -10,9 +10,16 @@ namespace GestioneFilm
     {
         public int DurataMin { get; set; }
         public string? titolo;
-        //public enum Premio { Oscar, David, Grammy };
+
+        public enum premioType { Oscar, David, Grammy };
+        public premioType Premio { get; set; }
+
 
         public abstract void Play();
 
+        public void Stop()
+        {
+            Console.WriteLine("la riproduzione e finita");
+        }
     }
 }
