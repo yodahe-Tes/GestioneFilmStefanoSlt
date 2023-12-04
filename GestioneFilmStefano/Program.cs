@@ -12,18 +12,23 @@ namespace GestioneFilm
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Inserire la password");
+            string readPassword = Console.ReadLine();
 
 
             Film mNewFilm = new Film();
             mNewFilm.titolo = " Star Wars";
             mNewFilm.DurataMin = 90;
             mNewFilm.Premio = GenericMedia.premioType.Oscar;
+            mNewFilm.PasswordM = readPassword;
             mNewFilm.Play();
             mNewFilm.minutoCorrente();
+            
             mNewFilm.Stop();
+            Console.WriteLine(mNewFilm.cryptoTitle);
             Console.Write("/nIl film e al minuto " + mNewFilm.minutoCorrente());
 
-
+            //var budff = mNewFilm.criptoFile;
 
             EpisodioSerieTv mNewEpisodio = new();
             mNewEpisodio.titolo = " Andor";
@@ -36,6 +41,7 @@ namespace GestioneFilm
             Console.Write("/n L'episodio e al minuto " + mNewEpisodio.minutoCorrente());
 
 
+            
 
 
             //Interfaccia IMedia 
@@ -73,20 +79,43 @@ namespace GestioneFilm
 
             //Creare una lista di Film
 
-            var mListaFilm = new List<Film> { new Film() { titolo = "Tarzan", DurataMin = 90, Premio = GenericMedia.premioType.Oscar },
-                                        new Film() { titolo = "Biancaneve", DurataMin = 90, Premio = GenericMedia.premioType.Oscar },
-                                        new Film() { titolo = "Hercules", DurataMin = 90, Premio = GenericMedia.premioType.David },
-                                        new Film() { titolo = "La sirenetta", DurataMin = 90, Premio = GenericMedia.premioType.Grammy },
+            var mListaFilm = new List<Film> { new Film() { titolo = "Tarzan", DurataMin = 90, Premio = GenericMedia.premioType.Oscar ,PasswordM = readPassword},
+                                        new Film() { titolo = "Biancaneve", DurataMin = 90, Premio = GenericMedia.premioType.Oscar ,PasswordM = readPassword},
+                                        new Film() { titolo = "Hercules", DurataMin = 90, Premio = GenericMedia.premioType.David,PasswordM = readPassword },
+                                        new Film() { titolo = "La sirenetta", DurataMin = 90, Premio = GenericMedia.premioType.Grammy ,PasswordM = readPassword},
                                         mNewFilm
         };
 
 
+            string jsonPath = Combine(CurrentDirectory, "film.json");
+
+            //Utilizzo la calsse statica del NewtonSoft
+            var js2 = JsonConvert.SerializeObject(mListaFilm);
+            // Utilizzo File.Write all della classe System.IO ( che gestisce in autonomia lo stream )
+            File.WriteAllText(jsonPath, js2);
+
+            // Display the serialized object graph 
+            WriteLine(File.ReadAllText(jsonPath));
+
+            //Rileggere il file serializzato appoggiandolo in una stringa
+            string buff = File.ReadAllText(jsonPath);
+
+            //Ricrea la lista di Obj Leone a partire dalla stringa Json 
+            var loadLeone = JsonConvert.DeserializeObject<List<Film>>(buff);
+
+            WriteLine(File.ReadAllText(jsonPath));
+
+            var loadFilm = JsonConvert.DeserializeObject<List<Film>>(buff);
+
+            mListaFilm.ForEach(item => Console.WriteLine($"Il titolo criptato è : {item.cryptoTitle}"));
+
+
             var ListEpidodi = new List<EpisodioSerieTv>
             {
-                new EpisodioSerieTv(){ titolo = "WandaVision", DurataMin = 90, Premio = GenericMedia.premioType.Oscar },
-                                        new EpisodioSerieTv() { titolo = "MoonKnight", DurataMin = 90, Premio = GenericMedia.premioType.Oscar },
-                                        new EpisodioSerieTv() { titolo = "SheHulk", DurataMin = 90, Premio = GenericMedia.premioType.David },
-                                        new EpisodioSerieTv() { titolo = "Falcon&Wintersoldier", DurataMin = 90, Premio = GenericMedia.premioType.Grammy },
+                new EpisodioSerieTv(){ titolo = "WandaVision", DurataMin = 90, Premio = GenericMedia.premioType.Oscar ,PasswordM = readPassword},
+                                        new EpisodioSerieTv() { titolo = "MoonKnight", DurataMin = 90, Premio = GenericMedia.premioType.Oscar ,PasswordM = readPassword},
+                                        new EpisodioSerieTv() { titolo = "SheHulk", DurataMin = 90, Premio = GenericMedia.premioType.David ,PasswordM = readPassword},
+                                        new EpisodioSerieTv() { titolo = "Falcon&Wintersoldier", DurataMin = 90, Premio = GenericMedia.premioType.Grammy,PasswordM = readPassword },
                                         mNewEpisodio
             };
 
