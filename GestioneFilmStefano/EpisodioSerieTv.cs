@@ -14,8 +14,8 @@ namespace GestioneFilm
         public override void Play()
         {
              
-            Console.WriteLine("/n il titolo dell'episodio è" + titolo + "/n Il numero dell'episodio è " + NumeroEpisodio +
-                "/nLa stagione dell'episodio è " + Stagione + " /nLa durata dell'episodio è  " + DurataMin + "/n Ha ricevuto il premio" + Premio);
+            Console.WriteLine("\n Il titolo dell'episodio è " + titolo + "\n Il numero dell'episodio è " + NumeroEpisodio +
+                "\nLa stagione dell'episodio è " + Stagione + " \nLa durata dell'episodio è  " + DurataMin + "\n Ha ricevuto il premio " + Premio);
         }
     }
 }

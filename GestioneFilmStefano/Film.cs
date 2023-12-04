@@ -11,7 +11,7 @@ namespace GestioneFilm
 
         public override void Play()
         {
-            Console.WriteLine("il titolo del film è" + titolo + " e al minuto  " + DurataMin + "Ha ricevuto il premio"+ Premio);
+            Console.WriteLine("\n Il titolo del film è " + titolo + " e al minuto  " + DurataMin + " Ha ricevuto il premio "+ Premio);
         }
 
     }

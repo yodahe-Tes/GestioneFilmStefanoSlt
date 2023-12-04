@@ -12,9 +12,11 @@ namespace GestioneFilm
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Inserire la password");
-            string readPassword = Console.ReadLine();
+            //Console.WriteLine("Inserire la password");
+            //string readPassword = Console.ReadLine();
 
+            Console.WriteLine("Inserisci una password ");
+            string? readPassword = string.IsNullOrEmpty(Console.ReadLine()) ? string.Empty : Console.ReadLine();
 
             Film mNewFilm = new Film();
             mNewFilm.titolo = " Star Wars";
@@ -26,7 +28,7 @@ namespace GestioneFilm
             
             mNewFilm.Stop();
             Console.WriteLine(mNewFilm.cryptoTitle);
-            Console.Write("/nIl film e al minuto " + mNewFilm.minutoCorrente());
+            Console.Write("\n Il film e al minuto " + mNewFilm.minutoCorrente());
 
             //var budff = mNewFilm.criptoFile;
 
@@ -38,7 +40,7 @@ namespace GestioneFilm
             mNewEpisodio.Play();
             mNewEpisodio.minutoCorrente();
             mNewEpisodio.Stop();
-            Console.Write("/n L'episodio e al minuto " + mNewEpisodio.minutoCorrente());
+            Console.Write("\n L'episodio e al minuto " + mNewEpisodio.minutoCorrente());
 
 
             
@@ -107,7 +109,7 @@ namespace GestioneFilm
 
             var loadFilm = JsonConvert.DeserializeObject<List<Film>>(buff);
 
-            mListaFilm.ForEach(item => Console.WriteLine($"Il titolo criptato è : {item.cryptoTitle}"));
+            mListaFilm.ForEach(item => Console.WriteLine($"Il titolo criptato è : {item.cryptoTitle} , {item.titolo}"));
 
 
             var ListEpidodi = new List<EpisodioSerieTv>
